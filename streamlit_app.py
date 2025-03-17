@@ -31,5 +31,5 @@ initial_investment = st.slider("Initial investment", 1000, 100000)
 results = annual_compound(monthly_deposit, annual_return, total_time, initial_investment)
 
 st.write("Value of your investment after ", total_time, " years: ", results[0])
-st.write("Total amount invested during this period: ", returns[1])
+st.write("Total amount invested during this period: ", results[1])
 st.write("This corresponds to a profit of ", results[2], "€, or ", results[3], "%!")
