@@ -40,7 +40,7 @@ with col2:
 
 results = annual_compound(monthly_deposit, annual_return, total_time, initial_investment)
 
-chart_data = pd.DataFrame(data_value, columns=["Value"])
+chart_data = pd.DataFrame(results[4], columns=["Value"])
 
 st.line_chart(chart_data, x="Time (months)", y="Total value (EUR)")
 
