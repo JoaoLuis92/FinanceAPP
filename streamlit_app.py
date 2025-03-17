@@ -2,11 +2,7 @@ import streamlit as st
 
 st.title('🎈 App Name')
 
-st.write('Oi Cate')
+st.write('Oi Mana')
 
-x = st.slider("Rate Cate", 1, 10)
 
-if x == 10:
-    st.write("Yes, cate is a 10")
-else:
-    st.write("Nope, you're mistaken.")
+
