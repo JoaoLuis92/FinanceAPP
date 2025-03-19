@@ -44,7 +44,7 @@ chart_data = pd.DataFrame(results[4], columns=["Value"])
 
 st.line_chart(chart_data)
 
-st.metric("Final value", results[0], results[0] - results[1])
+st.metric("Final value", round(results[0], 0), round(results[0] - results[1], 0))
 
 st.write("Value of your investment after ", total_time, " years: ", round(results[0], 0), "€")
 st.write("Total amount invested during this period: ", round(results[1], 0), "€")
