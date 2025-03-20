@@ -2,14 +2,17 @@ import streamlit as st
 import pandas as pd
 from compound_calculators import *
 
-st.title('JL\'s Finance App!')
+st.title(':moneybag: Welcome to JL\'s Finance App! :chart_with_upwards_trend:')
 
 st.header("What can you find here?")
-st.write("Description of what you can find here")
+st.write("""
+         I'm a student of Financial Engineering and I am using streamlit to organize the
+         materials I have learned in different subjects of my course.          
+         """)
 
 # select box
 
-option_choice = st.selectbox("kunami",("Compound calculators", "others"))
+option_choice = st.selectbox("Select the topic below",("Compound calculators", "others"))
 
 if option_choice == "Compound calculators":
 
