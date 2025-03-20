@@ -12,7 +12,7 @@ st.write("""
 
 # select box
 
-option_choice = st.selectbox("Select the topic below",("Compound calculators", "others"))
+option_choice = st.selectbox("Select the topic below",("Compound calculators", "Others"))
 
 if option_choice == "Compound calculators":
 
@@ -64,6 +64,10 @@ if option_choice == "Compound calculators":
         st.write("Value of your investment after ", total_time, " years: ", round(results[0], 0), "€")
         st.write("Total amount invested during this period: ", round(results[1], 0), "€")
         st.write("This corresponds to a profit of ", round(results[2], 0), "€, or ", round(results[3],0), "%!")
+
+    with tab2:
+
+        st.write("Under development! :mechanic: :screwdriver:")
 
 if option_choice == "Others":
 
