@@ -80,8 +80,7 @@ class InterestRates:
             present_value += interest_value
             data.append([i + 1, present_value])
 
-        df = pd.DataFrame(data, columns = ["Time periods", "Value"])
-        df.set_index("Time periods")
+        df = pd.DataFrame(data, columns = ["Time periods", "Value"], index = ["Time periods"])
 
         return df
     
