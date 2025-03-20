@@ -78,9 +78,9 @@ class InterestRates:
 
         for i in range(number_periods):
             present_value += interest_value
-            data.append([present_value, i + 1])
+            data.append([i + 1, present_value])
 
-        df = pd.DataFrame(data, columns = ["Time periods", "Value"])
+        df = pd.DataFrame(data, columns = ["Time periods", "Value"], index = "Time periods")
 
         return df
     
