@@ -7,7 +7,8 @@ st.title('Welcome to JL\'s Finance App! :chart_with_upwards_trend:')
 st.header("What can you find here?")
 st.write("""
          I'm a student of Financial Engineering and I am using streamlit to organize the
-         materials I have learned in different subjects of my course.          
+         materials I have learned in different subjects of my course. \\
+         Last update: 20/03/2025        
          """)
 
 # select box
@@ -19,6 +20,15 @@ if option_choice == "Compound calculators":
     tab1, tab2 = st.tabs(["Annual compound", "Monthly compound"])
 
     with tab1:
+
+        st.header("Annual compound calculator", divider = "red")
+
+        st.write("""
+                 This is the annual compound calculator. It takes four arguments, namely
+                 the value of your monthly deposit, the annual percentage return, the total
+                 time in years that the value will be compounding, and the initial deposit.
+                 """)
+
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
