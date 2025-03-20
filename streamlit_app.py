@@ -8,7 +8,7 @@ st.write("Description of what you can find here")
 
 # select box
 
-option_choice = st.selectbox("kunami",("Compound calculators"))
+option_choice = st.selectbox("kunami",("Compound calculators", "others"))
 
 if option_choice == "Compound calculators":
 
