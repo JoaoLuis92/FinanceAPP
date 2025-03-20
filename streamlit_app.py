@@ -1,11 +1,19 @@
 import streamlit as st
 import pandas as pd
-from compound_calculators import *
 from general_functions import *
+from interest_rates import *
+from compound_calculators import *
+
+
 
 make_title()
+make_sidebar()
 
-option_choice = st.selectbox("Select the topic below",("Compound calculators", "Others"))
+option_choice = st.selectbox("Select the topic below",("Interest rates", "Compound calculators", "Others"))
+
+if option_choice == "Interest rates":
+
+    InterestRates.interest_rates_block()
 
 if option_choice == "Compound calculators":
 
@@ -17,8 +25,8 @@ if option_choice == "Compound calculators":
 
     with tab2:
 
-        st.write("Under development! :mechanic: :screwdriver:")
+        under_development()
 
 if option_choice == "Others":
 
-    st.write("Under development! :mechanic: :screwdriver:")
+    under_development()
