@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from compound_calculators import *
 
-st.title(':moneybag: Welcome to JL\'s Finance App! :chart_with_upwards_trend:')
+st.title('Welcome to JL\'s Finance App! :chart_with_upwards_trend:')
 
 st.header("What can you find here?")
 st.write("""
@@ -64,3 +64,7 @@ if option_choice == "Compound calculators":
         st.write("Value of your investment after ", total_time, " years: ", round(results[0], 0), "€")
         st.write("Total amount invested during this period: ", round(results[1], 0), "€")
         st.write("This corresponds to a profit of ", round(results[2], 0), "€, or ", round(results[3],0), "%!")
+
+if option_choice == "Others":
+
+    st.write("Under development! :mechanic: :screwdriver:")
