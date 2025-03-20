@@ -1,7 +1,11 @@
 import streamlit as st
 import pandas as pd
 
-def annual_compound(monthly_deposit, annual_return, total_time, initial_investment):
+# FUNCTIONS FOR THE ANNUAL COMPOUND CALCULATOR
+
+# Actual function that calculates the annual compound
+
+def annual_compound_function(monthly_deposit, annual_return, total_time, initial_investment):
 
         current_value = initial_investment
         total_invested = initial_investment
@@ -22,7 +26,10 @@ def annual_compound(monthly_deposit, annual_return, total_time, initial_investme
 
         return (current_value, total_invested, total_profit, relative_profit, data_value, data_time)
 
-def annual_compound_block():
+# Introduces the theory behind this method
+
+def annual_compound_header():
+
     st.header("Annual compound calculator", divider = "red")
 
     st.write("""
@@ -30,6 +37,12 @@ def annual_compound_block():
             the value of your monthly deposit, the annual percentage return, the total
             time in years that the value will be compounding, and the initial deposit.
             """)
+    
+# Creates the block in the application
+
+def annual_compound_block():
+    
+    annual_compound_header()
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -65,7 +78,7 @@ def annual_compound_block():
                                                 value = 1000,
                                                 step = 1000)
 
-    results = annual_compound(monthly_deposit, annual_return, total_time, initial_investment)
+    results = annual_compound_function(monthly_deposit, annual_return, total_time, initial_investment)
 
     chart_data = pd.DataFrame(results[4], columns=["Value"])
 

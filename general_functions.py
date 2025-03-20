@@ -1,5 +1,7 @@
 import streamlit as st
 
+# This function creates the title and the introduction text 
+
 def make_title():
     st.title('Welcome to JL\'s Finance App! :chart_with_upwards_trend:')
 

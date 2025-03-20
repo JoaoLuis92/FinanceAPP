@@ -5,8 +5,6 @@ from general_functions import *
 
 make_title()
 
-# select box
-
 option_choice = st.selectbox("Select the topic below",("Compound calculators", "Others"))
 
 if option_choice == "Compound calculators":
