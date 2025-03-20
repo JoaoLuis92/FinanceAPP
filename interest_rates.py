@@ -39,7 +39,18 @@ class InterestRates:
         cls.simple_rate_info()
         (present_value, interest_rate, number_periods) = cls.simple_rate_inputs()
         results_dataframe = cls.simple_rate_function(present_value, interest_rate, number_periods)
-        st.dataframe(results_dataframe)
+        
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.dataframe(results_dataframe)
+
+        with col2:
+            st.line_chart(results_dataframe, 
+                      x_label = "Number of time periods",
+                      y_label = "Value in EUR",
+                      width = 600,
+                      height = 400)
 
     @classmethod
     def yearly_compound_block(cls):
