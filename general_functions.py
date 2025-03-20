@@ -16,7 +16,7 @@ def make_title():
 
 def make_sidebar():
 
-    with st.sidebar():
+    with st.sidebar:
         under_development()
     
 # Prints a message that says this part is under development
