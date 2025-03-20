@@ -1,51 +1,58 @@
 import streamlit as st
 import pandas as pd
 
-st.title('🎈 App Name')
+st.title('JL\'s Finance App!')
 
-st.header("Annual compound calculator")
+st.header("What can you find here?")
+st.write("Description of what you can find here")
 
-def annual_compound(monthly_deposit = 100, annual_return = 8, total_time = 10, initial_investment = 1000):
+# select box
 
-    current_value = initial_investment
-    total_invested = initial_investment
-    data_value = [current_value]
-    data_time = [0]
+option_choice = st.multiselect("select option", ["Compound calculators"])
 
-    for i in range(total_time):
-        for j in range(12):
+if option_choice == "Compound calculators":
 
-            current_value = current_value * (1 + annual_return / 100) ** (1/12) + monthly_deposit
-            total_invested += monthly_deposit
+    def annual_compound(monthly_deposit = 100, annual_return = 8, total_time = 10, initial_investment = 1000):
 
-            data_value.append(current_value)
-            data_time.append((i + j) / 12)
-    
-    total_profit = current_value - total_invested
-    relative_profit = total_profit / total_invested * 100
+        current_value = initial_investment
+        total_invested = initial_investment
+        data_value = [current_value]
+        data_time = [0]
 
-    return (current_value, total_invested, total_profit, relative_profit, data_value, data_time)
+        for i in range(total_time):
+            for j in range(12):
 
-col1, col2 = st.columns(2)
+                current_value = current_value * (1 + annual_return / 100) ** (1/12) + monthly_deposit
+                total_invested += monthly_deposit
 
-with col1:
+                data_value.append(current_value)
+                data_time.append((i + j) / 12)
+        
+        total_profit = current_value - total_invested
+        relative_profit = total_profit / total_invested * 100
 
-    monthly_deposit = st.slider("Monthly deposit in EUR", 0, 1000)
-    annual_return = st.slider("Annual return in percentage", 0, 30)
+        return (current_value, total_invested, total_profit, relative_profit, data_value, data_time)
 
-with col2:
+    col1, col2 = st.columns(2)
 
-    total_time = st.slider("Total time in years", 1, 50)
-    initial_investment = st.slider("Initial investment", 1000, 100000)
+    with col1:
 
-results = annual_compound(monthly_deposit, annual_return, total_time, initial_investment)
+        monthly_deposit = st.slider("Monthly deposit in EUR", 0, 1000)
+        annual_return = st.slider("Annual return in percentage", 0, 30)
 
-chart_data = pd.DataFrame(results[4], columns=["Value"])
+    with col2:
 
-st.line_chart(chart_data)
+        total_time = st.slider("Total time in years", 1, 50)
+        initial_investment = st.slider("Initial investment", 1000, 100000)
 
-st.metric("Final value", results[0], "{:.2%}".format((results[0] - results[1])/results[1]))
+    results = annual_compound(monthly_deposit, annual_return, total_time, initial_investment)
 
-st.write("Value of your investment after ", total_time, " years: ", round(results[0], 0), "€")
-st.write("Total amount invested during this period: ", round(results[1], 0), "€")
-st.write("This corresponds to a profit of ", round(results[2], 0), "€, or ", round(results[3],0), "%!")
+    chart_data = pd.DataFrame(results[4], columns=["Value"])
+
+    st.line_chart(chart_data)
+
+    st.metric("Final value", results[0], "{:.2%}".format((results[0] - results[1])/results[1]))
+
+    st.write("Value of your investment after ", total_time, " years: ", round(results[0], 0), "€")
+    st.write("Total amount invested during this period: ", round(results[1], 0), "€")
+    st.write("This corresponds to a profit of ", round(results[2], 0), "€, or ", round(results[3],0), "%!")
