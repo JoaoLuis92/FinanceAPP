@@ -4,8 +4,6 @@ from general_functions import *
 from interest_rates import *
 from compound_calculators import *
 
-
-
 make_title()
 make_sidebar()
 
