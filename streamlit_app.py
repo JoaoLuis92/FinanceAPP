@@ -16,17 +16,39 @@ if option_choice == "Compound calculators":
     tab1, tab2 = st.tabs(["Annual compound", "Monthly compound"])
 
     with tab1:
-        col1, col2 = st.columns(2)
+        col1, col2, col3, col4 = st.columns(4)
 
         with col1:
 
-            monthly_deposit = st.slider("Monthly deposit in EUR", 0, 1000)
-            annual_return = st.slider("Annual return in percentage", 0, 30)
-
+            monthly_deposit = st.number_input("Monthly deposit in EUR", 
+                                              min_value = 0, 
+                                              max_value = 5000,
+                                              value = 1000,
+                                              step = 100)
+            
         with col2:
-
-            total_time = st.slider("Total time in years", 1, 50)
-            initial_investment = st.slider("Initial investment", 1000, 100000)
+            
+            annual_return = st.number_input("Annual return in \%", 
+                                              min_value = 0, 
+                                              max_value = 50,
+                                              value = 10,
+                                              step = 1)
+            
+        with col3:
+            
+            total_time = st.number_input("Total time in years", 
+                                              min_value = 1, 
+                                              max_value = 50,
+                                              value = 10,
+                                              step = 1)
+            
+        with col4:
+            
+            initial_investment = st.number_input("Initial deposit",
+                                                 min_value = 0,
+                                                 max_value = 50000,
+                                                 value = 1000,
+                                                 step = 1000)
 
         results = annual_compound(monthly_deposit, annual_return, total_time, initial_investment)
 
