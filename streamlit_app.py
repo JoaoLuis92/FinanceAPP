@@ -7,7 +7,7 @@ from compound_calculators import *
 make_title()
 make_sidebar()
 
-option_choice = st.selectbox("Select the topic below",("Interest rates", "Compound calculators", "Others"))
+option_choice = st.selectbox("Select a topic below to get started!",("Interest rates", "Compound calculators", "Others"))
 
 if option_choice == "Interest rates":
 

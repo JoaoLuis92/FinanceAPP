@@ -359,19 +359,77 @@ class InterestRates:
     # Information about the topics
 
     def interest_rates_info():
-        under_development()
+        st.markdown("""This section deals with interest rates! Here you can calculate how the value of your asset
+                    evolves over time for different types of interest rates and with different payment periods, 
+                    and also calculate how interest rates change when the payment periods are altered.""")
+        st.markdown("""
+                    - **Simple rate:** calculation of simple interest rates over a given time period;
+                    - **Yearly compound:** calculation of yearly compounded interest rates over a given time period;
+                    - **Periodic compound:** calculation of interest rates that compound several times per year;
+                    - **Continuous compound:** calculation of interest rates that compound continuously over time;
+                    - **Rate converter:** conversion of interest rates between two different payment frequencies.
+                    """)
 
     def simple_rate_info():
-        under_development()
+        st.markdown("""A simple interest rate means that the value of the interest remains a constant fraction of
+                    the initial value of the asset over time. This means that you do not earn interest on the 
+                    interest previously received. The forward value of an asset that pays a simple 
+                    interest rate is given by:""")
+        st.latex(r"FV = PV\left(1+nr\right)")
+        st.markdown("""
+                    - $FV$: forward value;
+                    - $PV$: present value;
+                    - $r$: simple interest rate;
+                    - $n$: number of payments.
+                    """)
 
     def yearly_compound_info():
-        under_development()
+        st.markdown("""A yearly compounded interest rate means that the interest is paid yearly and that you can earn
+                    interest on the interest previously received. As such, the interest rate increases with time. The
+                    forward value of an asset that compounds yearly is given by:""")
+        st.latex(r"FV = PV\left(1+r\right)^n")
+        st.markdown("""
+                    - $FV$: forward value;
+                    - $PV$: present value;
+                    - $r$: interest rate;
+                    - $n$: number of years.
+                    """)
 
     def periodic_compound_info():
-        under_development()
+        st.markdown("""A periodically compounded interest rate means that the interest is paid several times a year and
+                    that you earn interest on the interest previously received. As such, the interest rate increases with
+                    time, and faster than the yearly compound. The forward value of an asset that compounds periodically
+                    over the year is given by:""")
+        st.latex(r"FV = PV\left(1+\frac{r}{m}\right)^{m\times n}")
+        st.markdown("""
+                    - $FV$: forward value;
+                    - $PV$: present value;
+                    - $r$: interest rate;
+                    - $m$: payments per year;
+                    - $n$: number of years.
+                    """)
 
     def continuous_compound_info():
-        under_development()
+        st.markdown("""A continuously compounded interest rate means that the interest is paid at every instant in time.
+                    This can be obtained as the limit of periodic compound when the number of payments per year goes to
+                    infinity. As such, this is the fastest growing interest rate. The forward value of an asset that compounds
+                    continuously is given by:""")
+        st.latex(r"FV = PV \times e^{r\times n}")
+        st.markdown("""
+                    - $FV$: forward value;
+                    - $PV$: present value;
+                    - $r$: interest rate;
+                    - $n$: number of years.
+                    """)
 
     def rate_converter_info():
-        under_development()
+        st.markdown("""If interest is paid at different frequencies during the year, the resulting compounded value
+                    changes. It is possible to calculate the required interest rate such that the compounded value
+                    remains the same after the payment frequency is changed. The conversion is as follows:""")
+        st.latex(r"r_m=m\left[\left(1+\frac{r_n}{n}\right)^{\frac{n}{m}}-1\right]")
+        st.markdown("""
+                    - $r_m$: interest rate with new payment frequency;
+                    - $r_n$: interest rate with old payment frequency;
+                    - $m$: new frequency of payments per year;
+                    - $n$: old frequency of payments per year;
+                    """)
