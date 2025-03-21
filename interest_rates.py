@@ -316,7 +316,7 @@ class InterestRates:
             returns_percentage = returns_value / present_value * 100
             data.append([i + 1, current_value, returns_value, returns_percentage])
 
-        df = pd.DataFrame(data, columns = ["Time", "Value (€)", "Return (€)", "Return (%)"]).set_index("Time")
+        df = pd.DataFrame(data, columns = ["Time", "Value (€)", "Return (€)", "Return (%)"]).set_index("Time").apply(lambda x: round(x, 2))
 
         return df
     
@@ -332,7 +332,7 @@ class InterestRates:
             returns_percentage = returns_value / present_value * 100
             data.append([i + 1, current_value, returns_value, returns_percentage])
 
-        df = pd.DataFrame(data, columns = ["Time", "Value (€)", "Return (€)", "Return (%)"]).set_index("Time")
+        df = pd.DataFrame(data, columns = ["Time", "Value (€)", "Return (€)", "Return (%)"]).set_index("Time").apply(lambda x: round(x, 2))
 
         return df
     
@@ -346,7 +346,7 @@ class InterestRates:
             returns_percentage = returns_value / present_value * 100
             data.append([i + 1, current_value, returns_value, returns_percentage])
 
-        df = pd.DataFrame(data, columns = ["Time", "Value (€)", "Return (€)", "Return (%)"]).set_index("Time")
+        df = pd.DataFrame(data, columns = ["Time", "Value (€)", "Return (€)", "Return (%)"]).set_index("Time").apply(lambda x: round(x, 2))
 
         return df
     
