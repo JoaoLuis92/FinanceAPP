@@ -133,7 +133,7 @@ class InterestRates:
         (old_interest_rate, old_frequency, new_frequency) = cls.rate_converter_inputs()
         interest_rate = cls.rate_converter_function(old_interest_rate, old_frequency, new_frequency)
 
-        st.write("The new interest rate after conversion is", interest_rate)
+        st.write("The new interest rate after conversion is", round(interest_rate,2), "%")
 
     # Inputs for each function
 
